@@ -1,23 +1,15 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Layout, Menu } from 'antd';
 const { Sider } = Layout;
 const { SubMenu } = Menu;
-class BasicUserMenu extends Component {
+class BasicUserMenu extends PureComponent {
   constructor(props) {
     super(props);
     this.state = { 
       openKeys: []
      }
   }
-  openChange = (e) => {
-    this.setState({ openKeys: e})
-  }
-  clearKeys = () =>{
-    this.setState({openKeys:[]})
-  }
   render() { 
-    const {openKeys} = this.state;
-    console.log(openKeys);
     return ( 
       <Sider
         className="sider"
@@ -28,9 +20,6 @@ class BasicUserMenu extends Component {
           defaultSelectedKeys={['channelManage']}
           style={{ height: '100%', borderRight: 0 }}
           theme='dark'
-          openKeys={openKeys}
-          onOpenChange={this.openChange}
-          triggerSubMenuAction={this.clearKeys}
         >
           <Menu.Item key="channelManage">渠道管理</Menu.Item>
           <SubMenu key="platformDatabase" title="平台资料库">
@@ -56,6 +45,37 @@ class BasicUserMenu extends Component {
           <Menu.Item key="platformRoleManage">平台角色管理</Menu.Item>
           <Menu.Item key="platformUserManage">平台人员管理</Menu.Item>
           <Menu.Item key="brandExamine">企业品牌审核</Menu.Item>
+          <SubMenu key="personManage" title="企业标签管理">
+            <Menu.Item key="personCertification">标签列表</Menu.Item>
+            <Menu.Item key="personCertification">企业标签设置</Menu.Item>
+          </SubMenu>
+          <SubMenu key="SapOrgManage" title="新奥sap组织管理">
+            <Menu.Item key="purchaseFactory">采购工厂</Menu.Item>
+            <Menu.Item key="purchaseOrgList">采购组织列表</Menu.Item>
+            <Menu.Item key="purchaseFacList">采购工厂列表</Menu.Item>
+            <Menu.Item key="inventoryList">库存地列表</Menu.Item>
+          </SubMenu>
+          <Menu.Item key="supplierShopScore">供应商店铺评分</Menu.Item>
+          <SubMenu key="shopmanage" title="供应商店铺管理">
+            <Menu.Item key="businessGrade">供应商评级对比分析</Menu.Item>
+          </SubMenu>
+          <Menu.Item key="expertAdministration">专家管理</Menu.Item>
+          <SubMenu key="indexManage" title="指标管理">
+            <Menu.Item key="firstIndexManage">一级指标管理</Menu.Item>
+            <Menu.Item key="secondIndexManage">二级指标管理</Menu.Item>
+          </SubMenu>
+          <SubMenu key="benefitManage" title="权益管理">
+            <Menu.Item key="firstbenefitManage">一级权益管理</Menu.Item>
+            <Menu.Item key="secondbenefitManage">二级权益管理</Menu.Item>
+          </SubMenu>
+          <SubMenu key="platformGrade" title="等级规则管理">
+            <Menu.Item key="gradeManage">等级管理</Menu.Item>
+            <Menu.Item key="dimensionManage">维度管理</Menu.Item>
+            <Menu.Item key="categoryScoreRuleManage">类目评分规则管理</Menu.Item>
+          </SubMenu>
+          <SubMenu key="supplierAdministration" title="供应商管理">
+            <Menu.Item key="supplierGrade">供应商评级管理</Menu.Item>
+          </SubMenu>
         </Menu>
       </Sider>
      );

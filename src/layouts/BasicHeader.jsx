@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Layout, Menu, Avatar } from 'antd';
 import {UserOutlined} from '@ant-design/icons';
 import { NavLink } from 'react-router-dom';
 import './BasicHeader.less';
 import logo from '../assets/logo.png';
 const { Header } = Layout;
-class BasicHeader extends Component {
+class BasicHeader extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {  }
