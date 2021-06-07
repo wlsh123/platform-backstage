@@ -8,9 +8,9 @@ export default [
       // { path: '/register', component: '@/pages/register' },
     ],
   },
+  {exact: true, path:'/user', component:'@/pages/user/index'},
   {
-    exact: true,
-    path: '/userManagenment',
+    path: '/user/userManagenment',
     component: '@/pages/userManagenment',
   },
   { component: '@/pages/404' },

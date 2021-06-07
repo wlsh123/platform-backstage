@@ -8,5 +8,6 @@ export default defineConfig({
   fastRefresh: {},
   theme: {
     'primary-color': '#1e7be2',
+    'heading-color': 'rgba(0, 0, 0, 0.85)',
   },
 });
