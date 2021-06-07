@@ -6,4 +6,7 @@ export default defineConfig({
   },
   routes: routes,
   fastRefresh: {},
+  theme: {
+    'primary-color': '#1e7be2',
+  },
 });
