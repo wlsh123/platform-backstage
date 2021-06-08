@@ -1,0 +1,22 @@
+const headerMenuList = [
+  { key: 'user', title: '用户' },
+  { key: 'member', title: '会员' },
+  { key: 'data', title: '数据' },
+  { key: 'quality', title: '质量' },
+  { key: 'factory', title: '验厂' },
+  { key: 'content', title: '内容' },
+  { key: 'goods', title: '商品' },
+  { key: 'settlement', title: '结算' },
+  { key: 'purchase', title: '采购' },
+  { key: 'supermarket', title: '超市' },
+  { key: 'storage', title: '仓储' },
+  { key: 'service', title: '客服' },
+  { key: 'apply', title: '应用' },
+  { key: 'logistics', title: '物流' },
+  { key: 'marketing', title: '营销' },
+  { key: 'setting', title: '设置' },
+  { key: 'finance', title: '金融' },
+  { key: 'Eservice', title: 'e服' },
+  { key: 'invoice', title: '发票' },
+];
+export default headerMenuList;
