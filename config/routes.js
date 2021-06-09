@@ -8,11 +8,10 @@ export default [
       // { path: '/register', component: '@/pages/register' },
     ],
   },
-  { exact: true, path: '/user', redirect: '/user/channelManagement' },
+  { path: '/user', component: '@/pages/user' },
   {
     exact: true,
     path: '/user/channelManagement',
     component: '@/pages/user/channelManagement',
   },
-  { component: '@/pages/404' },
 ];

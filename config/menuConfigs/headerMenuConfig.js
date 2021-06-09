@@ -1,5 +1,5 @@
 const headerMenuList = [
-  { key: 'user', title: '用户' },
+  { key: 'user/channelManagement', title: '用户' },
   { key: 'member', title: '会员' },
   { key: 'data', title: '数据' },
   { key: 'quality', title: '质量' },
