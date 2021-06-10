@@ -1,10 +1,12 @@
 import { defineConfig } from 'umi';
-import routes from './config/routes.js';
 export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
-  routes: routes,
+  routes: [
+    { exact: true, path: '/', redirect: '/home' },
+    { exact: true, path: '/home', component: '@/pages/home/' },
+  ],
   fastRefresh: {},
   theme: {
     'primary-color': '#1e7be2',

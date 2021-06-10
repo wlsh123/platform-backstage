@@ -1,9 +1,9 @@
 const headerMenuList = [
-  { key: 'user/channelManagement', title: '用户' },
-  { key: 'member', title: '会员' },
+  { key: 'userManagenment/ChannelManagement', title: '用户' },
+  { key: 'equitymanage/setplatformequiry', title: '会员' },
   { key: 'data', title: '数据' },
   { key: 'quality', title: '质量' },
-  { key: 'factory', title: '验厂' },
+  { key: 'factory/Inspe/InspectionAudit', title: '验厂' },
   { key: 'content', title: '内容' },
   { key: 'goods', title: '商品' },
   { key: 'settlement', title: '结算' },
