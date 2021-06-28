@@ -6,6 +6,12 @@ export default defineConfig({
   routes: [
     { exact: true, path: '/', redirect: '/home' },
     { exact: true, path: '/home', component: '@/pages/home/' },
+    {
+      exact: true,
+      path: '/userManagement/ChannelManagement',
+      component: '@/pages/UserManagement/ChannelManagement',
+    },
+    { path: '/login', component: '@/pages/login/Login' },
   ],
   fastRefresh: {},
   theme: {

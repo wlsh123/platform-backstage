@@ -1,5 +1,5 @@
 const headerMenuList = [
-  { key: 'userManagenment/ChannelManagement', title: '用户' },
+  { key: 'userManagement/ChannelManagement', title: '用户' },
   { key: 'equitymanage/setplatformequiry', title: '会员' },
   { key: 'data', title: '数据' },
   { key: 'quality', title: '质量' },
