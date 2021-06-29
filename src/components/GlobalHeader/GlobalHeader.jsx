@@ -3,6 +3,7 @@ import { Layout, Menu, Avatar } from 'antd';
 import { Link } from 'umi';
 import { UserOutlined } from '@ant-design/icons';
 import menuList from '../../../config/menuConfigs/headerMenuConfig';
+import storageUtils from '../../utils/storageUtils';
 import './GlobalHeader.less';
 import logo from '../../assets/logo.png';
 const { Header } = Layout;
@@ -11,6 +12,11 @@ class GlobalHeader extends PureComponent {
     super(props);
     this.state = {};
   }
+  logout = () => {
+    //退出登录
+    storageUtils.removeUser();
+    window.location.href = '/login';
+  };
   // UNSAFE_componentWillMount() {
   //   this.menuNodes = this.getMenuNodes(menuList);
   // }
@@ -24,6 +30,8 @@ class GlobalHeader extends PureComponent {
   //   });
   // };
   render() {
+    // console.log(storageUtils.getUser())
+    const { username } = storageUtils.getUser();
     return (
       <Header className="header">
         <div className="logo">
@@ -97,8 +105,8 @@ class GlobalHeader extends PureComponent {
             shape="circle"
             className="avatar"
           />
-          <span className="userName">高玉晶</span>
-          <span>退出登录</span>
+          <span className="userName">{username}</span>
+          <a onClick={this.logout}>退出登录</a>
         </div>
       </Header>
     );

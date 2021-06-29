@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import LoginForm from './components/LoginForm';
+import Footer from './components/Footer';
 import './login.less';
 class Login extends Component {
   constructor(props) {
@@ -21,9 +23,9 @@ class Login extends Component {
             src="https://static.ygyg.cn/static/brand/sso-web/yunadmin/bg.png"
             alt=""
           />
-          Form
+          <LoginForm />
         </section>
-        <div className="login-footer">底部</div>
+        <Footer />
       </div>
     );
   }

@@ -1,18 +1,10 @@
 import { defineConfig } from 'umi';
+import routers from './config/routes';
 export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
-  routes: [
-    { exact: true, path: '/', redirect: '/home' },
-    { exact: true, path: '/home', component: '@/pages/home/' },
-    {
-      exact: true,
-      path: '/userManagement/ChannelManagement',
-      component: '@/pages/UserManagement/ChannelManagement',
-    },
-    { path: '/login', component: '@/pages/login/Login' },
-  ],
+  routes: routers,
   fastRefresh: {},
   theme: {
     'primary-color': '#1e7be2',
