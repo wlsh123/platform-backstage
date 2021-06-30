@@ -39,7 +39,7 @@ class GlobalHeader extends PureComponent {
         </div>
         <Menu theme="dark" mode="horizontal" className="menu">
           <Menu.Item key="user">
-            <Link to="/userManagement/ChannelManagement">用户</Link>
+            <Link to="/user/ChannelManagement">用户</Link>
           </Menu.Item>
           <Menu.Item key="menber">
             <Link to="/equitymanage/setplatformequiry">会员</Link>
