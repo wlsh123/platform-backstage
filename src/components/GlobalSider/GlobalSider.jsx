@@ -1,21 +1,10 @@
-import React, { PureComponent } from 'react';
 import { Layout, Menu } from 'antd';
+import React, { Component } from 'react';
 import { Link } from 'umi';
-import menuList from '../../config/menuConfigs/userMenuConfig';
-const { Sider } = Layout;
-class BasicUserMenu extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      openKeys: [],
-    };
-  }
-  UNSAFE_componentWillMount() {
-    this.userMenuNode = this.getMenuNodes(menuList);
-  }
+const { SubMenu } = Menu;
+const { Header, Content, Sider } = Layout;
+class GlobalSider extends Component {
   getMenuNodes = (menuList) => {
-    const { SubMenu } = Menu;
-    const path = 1;
     return menuList.map((item) => {
       if (!item.children) {
         return (
@@ -32,20 +21,24 @@ class BasicUserMenu extends PureComponent {
       }
     });
   };
+  UNSAFE_componentWillMount() {
+    this.menuNodes = this.getMenuNodes(this.props.menuList);
+  }
   render() {
+    const { siderKey } = this.props;
     return (
-      <Sider className="sider" width="180">
+      <Sider width={200} className="site-layout-background">
         <Menu
           mode="inline"
-          defaultSelectedKeys={['channelManage']}
           style={{ height: '100%', borderRight: 0 }}
           theme="dark"
+          selectedKeys={siderKey}
         >
-          {this.userMenuNode}
+          {this.menuNodes}
         </Menu>
       </Sider>
     );
   }
 }
 
-export default BasicUserMenu;
+export default GlobalSider;

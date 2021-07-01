@@ -30,16 +30,21 @@ class GlobalHeader extends PureComponent {
   //   });
   // };
   render() {
-    // console.log(storageUtils.getUser())
     const { username } = storageUtils.getUser();
+    const { headerKey } = this.props;
     return (
       <Header className="header">
         <div className="logo">
           <img src={logo} alt="" />
         </div>
-        <Menu theme="dark" mode="horizontal" className="menu">
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          className="menu"
+          selectedKeys={headerKey}
+        >
           <Menu.Item key="user">
-            <Link to="/user/ChannelManagement">用户</Link>
+            <Link to="/user/channelManagement">用户</Link>
           </Menu.Item>
           <Menu.Item key="menber">
             <Link to="/equitymanage/setplatformequiry">会员</Link>

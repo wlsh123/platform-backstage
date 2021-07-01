@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
-import {
-  Layout,
-  Breadcrumb,
-  Card,
-  Input,
-  Select,
-  Form,
-  DatePicker,
-  Button,
-} from 'antd';
-import locale from 'antd/lib/date-picker/locale/zh_CN';
 import menuList from '../../../../config/menuConfigs/userMenuConfig';
-import BasicLayout from '@/layouts/BasicLayout';
-class ChannelManagement extends Component {
+import GlobalLayout from '../../../layouts/Layout';
+import ChannelList from './components/ChannelList';
+class Index extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render() {
-    return <BasicLayout menuList={menuList}>这是content</BasicLayout>;
+    return (
+      <GlobalLayout
+        menuList={menuList}
+        headerKey="user"
+        siderKey={menuList[0].key}
+        breadtitle={menuList[0].title}
+        content={<ChannelList />}
+      />
+    );
   }
 }
 
-export default ChannelManagement;
+export default Index;

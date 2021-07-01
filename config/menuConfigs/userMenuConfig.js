@@ -1,5 +1,5 @@
 const userMenuList = [
-  { key: 'user/channelManagement', title: '渠道管理' },
+  { key: 'channelManagement', title: '渠道管理' },
   {
     key: 'user/platformDatabase',
     title: '平台资料库',

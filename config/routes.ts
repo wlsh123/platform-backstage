@@ -10,7 +10,7 @@ const routes = [
   {
     exact: true,
     path: '/user/ChannelManagement',
-    component: '@/pages/user/',
+    component: '@/pages/user/channelManagement',
     wrappers: ['@/wrappers/auth'],
     title: '平台后台-渠道管理',
   },
