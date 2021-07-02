@@ -16,12 +16,12 @@ class GlobalLayout extends Component {
           <Layout style={{ padding: '0 24px 24px' }}>
             <GlobalBreadcrumb breadtitle={breadtitle} />
             <Content
-              className="site-layout-background"
-              style={{
-                padding: 24,
-                margin: 0,
-                minHeight: 280,
-              }}
+            //   className="site-layout-background"
+            //   style={{
+            //     padding: 24,
+            //     margin: 0,
+            //     minHeight: 280,
+            //   }}
             >
               {content}
             </Content>
