@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card, Form, Input, Select, DatePicker, Button, Table } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import { connect } from 'dva';
 import './channelList.less';
 
 const { Option } = Select;
@@ -38,7 +39,6 @@ const columns = [
     render: (text, record) => <a href="">编辑</a>,
   },
 ];
-
 const data = [
   {
     channelId: '1',
@@ -62,8 +62,11 @@ const data = [
     jiesuan: '非集中结算',
   },
 ];
+
 class ChannelList extends Component {
   render() {
+    console.log(this.props);
+    const { channelManagement } = this.props;
     return (
       <div>
         <Card>
@@ -99,12 +102,14 @@ class ChannelList extends Component {
             <Button type="primary">添加渠道</Button>
           </div>
           <div>
-            <Table columns={columns} dataSource={data} />
+            <Table columns={columns} dataSource={channelManagement} />
           </div>
         </Card>
       </div>
     );
   }
 }
-
-export default ChannelList;
+const mapStateToProps = ({ channelManagement }) => {
+  return { channelManagement };
+};
+export default connect(mapStateToProps)(ChannelList);

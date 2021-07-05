@@ -1,9 +1,21 @@
 /*
 包含应用中所有接口请求函数的模块
 */
-import ajax from './ajax';
+import ajax from '../utils/ajax';
 import jsonp from 'jsonp';
 import { message } from 'antd';
+
+export async function queryChannelByIds(params) {
+  try {
+    const res = await ajax('/queryChannelList', params, 'POST');
+    return [null, res];
+  } catch (error) {
+    console.warn(error);
+    return [error, null];
+  }
+}
+
+/*
 export const reqLogin = (username, password) =>
   ajax('/api/login', { username, password }, 'POST');
 export const reqAddUser = (user) =>
@@ -55,14 +67,4 @@ export const reqCategory = (categoryId) =>
 //商品上下架
 export const reqUpdateStatus = (productId, status) =>
   ajax('/api/manage/product/updateStatus', { productId, status }, 'POST');
-
-export async function QuerySetRules(params) {
-  // 设置配置规则
-  // try {
-  //   const res = await request.post('/appi/poa/storageFeeRule/setRules', params);
-  //   return [null, res];
-  // } catch (error) {
-  //   console.warn(error);
-  //   return [error, null];
-  // }
-}
+*/
