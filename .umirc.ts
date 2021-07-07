@@ -10,4 +10,11 @@ export default defineConfig({
     'primary-color': '#1e7be2',
     'heading-color': 'rgba(0, 0, 0, 0.85)',
   },
+  proxy: {
+    '/api': {
+      target: 'http://localhost:5000',
+      // pathRewrite: { '^/api': '' },
+      changeOrigin: true,
+    },
+  },
 });

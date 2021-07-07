@@ -1,10 +1,10 @@
 const userMenuList = [
   { key: 'channelManagement', title: '渠道管理' },
   {
-    key: 'user/platformDatabase',
+    key: 'platformDatabase',
     title: '平台资料库',
     children: [
-      { key: 'user/qualificationGroup', title: '资质分组' },
+      { key: 'platformDatabase/qualificationGroup', title: '资质分组' },
       { key: 'user/qualificationManage', title: '资质管理' },
     ],
   },

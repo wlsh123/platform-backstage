@@ -1,34 +1,31 @@
-import * as channelManagement from '';
+import * as channelManagement from '@/services/channelManagement';
 export default {
-  namespace: 'channelManagement',
-  state: [],
+  namespace: 'channelTable',
+  state: {
+    tableData: {},
+    channelList: [],
+  },
   reducers: {
+    saveTableData(state, { payload }) {
+      return {
+        ...state,
+        tableData: payload,
+      };
+    },
     saveChannelList(state, { payload }) {
-      const data = [
-        {
-          channelId: '1',
-          channelName: '阳光智采',
-          time: '2018-06-06 13:21:26',
-          person: '高玉晶',
-          jiesuan: '集中结算',
-        },
-        {
-          channelId: '2',
-          channelName: '奥德e购',
-          time: '2018-06-06 13:21:26',
-          person: '刘浩',
-          jiesuan: '集中结算',
-        },
-        {
-          channelId: '3',
-          channelName: '中油e购',
-          time: '2018-06-06 13:21:26',
-          person: '高然',
-          jiesuan: '非集中结算',
-        },
-      ];
-      return data;
+      return {
+        ...state,
+        channelList: payload,
+      };
     },
   },
-  effects: {},
+  effects: {
+    *getChannelList({ payload }, { call, put }) {
+      let response = yield call(channelManagement.queryChannelByIds, payload);
+      yield put({
+        type: 'saveChannelList',
+        payload: response.rspBody,
+      });
+    },
+  },
 };

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card, Form, Input, Select, DatePicker, Button, Table } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import { history } from 'umi';
 import { connect } from 'dva';
 import './channelList.less';
 
@@ -9,64 +10,54 @@ const columns = [
   {
     title: '渠道号',
     dataIndex: 'channelId',
-    key: 'channelId',
+    key: 'name',
   },
   {
     title: '渠道名称',
     dataIndex: 'channelName',
-    key: 'channelName',
-    render: (text) => <a href="">{text}</a>,
+    key: 'number',
   },
   {
     title: '创建时间',
-    dataIndex: 'time',
+    dataIndex: 'createTime',
     key: 'time',
   },
   {
     title: '创建人',
-    dataIndex: 'person',
+    dataIndex: 'channelOperAcctName',
     key: 'person',
   },
   {
     title: '结算模式',
-    dataIndex: 'jiesuan',
+    dataIndex: 'clearingSetType',
     key: 'jiesuan',
+    render: (text) => {
+      const config = {
+        1: '集中结算',
+        2: '非集中结算',
+        3: '混合结算',
+      };
+      if (config[text]) {
+        return config[text];
+      }
+    },
   },
   {
     title: '操作',
     dataIndex: 'opera',
     key: 'opera',
-    render: (text, record) => <a href="">编辑</a>,
+    render: (text) => <a onClick={() => history.push('/edit')}>编辑</a>,
   },
 ];
-const data = [
-  {
-    channelId: '1',
-    channelName: '阳光智采',
-    time: '2018-06-06 13:21:26',
-    person: '高玉晶',
-    jiesuan: '集中结算',
-  },
-  {
-    channelId: '2',
-    channelName: '奥德e购',
-    time: '2018-06-06 13:21:26',
-    person: '刘浩',
-    jiesuan: '集中结算',
-  },
-  {
-    channelId: '3',
-    channelName: '中油e购',
-    time: '2018-06-06 13:21:26',
-    person: '高然',
-    jiesuan: '非集中结算',
-  },
-];
-
 class ChannelList extends Component {
+  componentDidMount() {
+    this.props.dispatch({
+      type: 'channelTable/getChannelList',
+      payload: {},
+    });
+  }
   render() {
-    console.log(this.props);
-    const { channelManagement } = this.props;
+    const { channelList } = this.props.channelTable;
     return (
       <div>
         <Card>
@@ -102,14 +93,14 @@ class ChannelList extends Component {
             <Button type="primary">添加渠道</Button>
           </div>
           <div>
-            <Table columns={columns} dataSource={channelManagement} />
+            <Table columns={columns} dataSource={channelList} />
           </div>
         </Card>
       </div>
     );
   }
 }
-const mapStateToProps = ({ channelManagement }) => {
-  return { channelManagement };
+const mapstateToProps = ({ channelTable }) => {
+  return { channelTable };
 };
-export default connect(mapStateToProps)(ChannelList);
+export default connect(mapstateToProps)(ChannelList);

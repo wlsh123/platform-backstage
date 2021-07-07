@@ -1,7 +1,7 @@
 /*
     能发送异步ajax请求的函数模块
 */
-import axios from 'axios';
+// import axios from 'axios';
 import { message } from 'antd';
 export default function ajax(url, data = {}, type = 'GET') {
   return new Promise((resolve, reject) => {

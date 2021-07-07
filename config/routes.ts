@@ -9,10 +9,23 @@ const routes = [
   },
   {
     exact: true,
-    path: '/user/ChannelManagement',
+    path: '/user/channelManagement',
     component: '@/pages/user/channelManagement',
     wrappers: ['@/wrappers/auth'],
     title: '平台后台-渠道管理',
+    routes: [
+      {
+        path: '/editchannel',
+        component: '@/pages/user/channelManagement/EditChannel',
+      },
+    ],
+  },
+  {
+    exact: true,
+    path: '/user/platformDatabase/qualificationGroup',
+    component: '@/pages/user/platformDatabase/qualificationGroup',
+    wrappers: ['@/wrappers/auth'],
+    title: '平台后台-资质分祖',
   },
   { path: '/login', component: '@/pages/login/Login' },
   { path: '*', component: '@/pages/404' },
